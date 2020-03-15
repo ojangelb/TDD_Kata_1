@@ -4,11 +4,8 @@ import sys
 class Estadistica:
     def calculoEstadistica(self, cadena):
         arrayResult = []
-        arrayString = []
+
         arrayString = cadena.split(",")
-        minimo = 0
-        maximo = 0
-        promedio = 0
 
         try:
             arrayString = [int(i) for i in arrayString]
@@ -16,23 +13,21 @@ class Estadistica:
         except:
              return 0
 
-
         if not cadena:
             return 0
         else:
             if len(arrayString) == 1:
-
                arrayResult = [arrayString[0],arrayString[0],1,arrayString[0]]
-            elif len(arrayString) == 2:
-                minimo = self.calcularMinimo(arrayString)
-                maximo = self.calcularMaximo(arrayString)
-                promedio = self.calcularPromedio(arrayString) / len(arrayString)
-                arrayResult = [maximo, minimo, 2, promedio]
-            elif len(arrayString) > 2:
-                minimo = self.calcularMinimo(arrayString)
-                maximo = self.calcularMaximo(arrayString)
-                promedio = self.calcularPromedio(arrayString) / len(arrayString)
-                arrayResult = [maximo, minimo, len(arrayString), promedio]
+            elif len(arrayString) > 1:
+                arrayResult = self.calculoVariosNumeros(self,arrayString)
+
+        return arrayResult
+
+    def calculoVariosNumeros(self, arrayString):
+        minimo = self.calcularMinimo(arrayString)
+        maximo = self.calcularMaximo(arrayString)
+        promedio = self.calcularPromedio(arrayString) / len(arrayString)
+        arrayResult = [maximo, minimo, len(arrayString), promedio]
         return arrayResult
 
     def calcularPromedio(arrayString):
