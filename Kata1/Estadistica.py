@@ -28,6 +28,11 @@ class Estadistica:
                 maximo = self.calcularMaximo(arrayString)
                 promedio = self.calcularPromedio(arrayString) / len(arrayString)
                 arrayResult = [maximo, minimo, 2, promedio]
+            elif len(arrayString) > 2:
+                minimo = self.calcularMinimo(arrayString)
+                maximo = self.calcularMaximo(arrayString)
+                promedio = self.calcularPromedio(arrayString) / len(arrayString)
+                arrayResult = [maximo, minimo, len(arrayString), promedio]
         return arrayResult
 
     def calcularPromedio(arrayString):
