@@ -13,4 +13,8 @@ class EstadisticaTest(TestCase):
 
     def test_calculo_estadistica_dos_numeros(self):
         array = [2, 1, 2, 1.5]
-        self.assertEqual(Estadistica.calculoEstadistica(Estadistica, "1,2"), array, "Un número")
+        self.assertEqual(Estadistica.calculoEstadistica(Estadistica, "1,2"), array, "Dos números")
+
+    def test_calculo_estadistica_n_numeros(self):
+        array = [5, 1, 5, 3]
+        self.assertEqual(Estadistica.calculoEstadistica(Estadistica, "1,2,4,3,5"), array, "N números")
