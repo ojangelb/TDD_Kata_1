@@ -8,4 +8,5 @@ class EstadisticaTest(TestCase):
         self.assertEqual(Estadistica.calculoEstadistica(""), 0, "Vacio")
         
     def test_calculo_estadistica_un_numero(self):
-        self.assertEqual(Estadistica.calculoEstadistica("1"), 1, "Un número")
+        array = [1,1,1,1]
+        self.assertEqual(Estadistica.calculoEstadistica("1"), array, "Un número")
