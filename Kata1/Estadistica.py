@@ -1,3 +1,4 @@
-class Estadistica
-    def calculoEstadistica(self):
-        pass
+
+class Estadistica:
+    def calculoEstadistica(cadena):
+        return 0
