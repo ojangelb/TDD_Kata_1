@@ -2,7 +2,7 @@ import sys
 
 
 class Estadistica:
-    def calculoEstadistica(cadena):
+    def calculoEstadistica(self, cadena):
         arrayResult = []
         arrayString = []
         arrayString = cadena.split(",")
@@ -24,19 +24,28 @@ class Estadistica:
 
                arrayResult = [arrayString[0],arrayString[0],1,arrayString[0]]
             elif len(arrayString) == 2:
-                auxiliar = sys.maxsize
-                for i in arrayString:
-                    if i < auxiliar:
-                        auxiliar = i
-                minimo = auxiliar
-                auxiliar = 0
-                for i in arrayString:
-                    if i > auxiliar:
-                        auxiliar = i
-                maximo = auxiliar
-                auxiliar = 0
-                for i in arrayString:
-                    auxiliar = auxiliar + i
-                promedio = auxiliar/len(arrayString)
+                minimo = self.calcularMinimo(arrayString)
+                maximo = self.calcularMaximo(arrayString)
+                promedio = self.calcularPromedio(arrayString) / len(arrayString)
                 arrayResult = [maximo, minimo, 2, promedio]
         return arrayResult
+
+    def calcularPromedio(arrayString):
+        auxiliar = 0
+        for i in arrayString:
+            auxiliar = auxiliar + i
+        return auxiliar
+
+    def calcularMaximo(arrayString):
+        auxiliar = 0
+        for i in arrayString:
+            if i > auxiliar:
+                auxiliar = i
+        return auxiliar
+
+    def calcularMinimo(arrayString):
+        auxiliar = sys.maxsize
+        for i in arrayString:
+            if i < auxiliar:
+                auxiliar = i
+        return auxiliar
